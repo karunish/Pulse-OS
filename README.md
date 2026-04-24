@@ -2,7 +2,7 @@
 
 Pulse OS is the hardware-side firmware for the **Pulse Bridge** system. It transforms an ESP32 into a smart external dashboard that displays real-time media metadata, phone status, and supports touchless gesture controls via an IR sensor.
 
-## 🛠 Hardware Configuration
+## Hardware Configuration
 * **Microcontroller:** ESP32 (WROOM/S3)
 * **Display:** 16x2 Character LCD (Parallel interface)
     * *Pins:* RS:4, E:5, D4:26, D5:25, D6:33, D7:32
@@ -10,7 +10,7 @@ Pulse OS is the hardware-side firmware for the **Pulse Bridge** system. It trans
     * *Pin:* 18 (Active LOW)
 * **Communication:** Bluetooth Low Energy (BLE)
 
-## 📡 The Pulse Protocol
+## The Pulse Protocol
 The firmware hosts a GATT Server with a custom Service UUID. It handles two-way communication:
 1.  **Metadata (Rx):** Receives a piped string `Title|Artist|Battery|Signature` from the Android app.
 2.  **Control (Tx):** Notifies the Android app of user gestures (e.g., "TOGGLE" for play/pause).
@@ -20,7 +20,7 @@ Building this was an iterative process that required solving several real-world 
 
 ### 1. The "Ghost Toggle" Fix (Gesture Debouncing)
 * **The Problem:** The IR sensor was too sensitive. A single hand wave would trigger multiple play/pause commands, causing the phone to interpret it as a "Next Track" command (double-tap logic).
-* **The Fix:** I implemented a **1200ms Software Lockout**. After a gesture is detected, the IR sensor is "blinded" for 1.2 seconds, ensuring only one clean command is sent to the phone per wave. We also added a **50ms noise floor** to ignore electrical flickers.
+* **The Fix:** I implemented a **1200ms Software Lockout**. After a gesture is detected, the IR sensor is "blinded" for 1.2 seconds, ensuring only one clean command is sent to the phone per wave.
 
 ### 2. Robust Pipe Parsing
 * **The Problem:** Initial parsing was fragile. If the artist name or signature was missing, the string slicing would fail, causing the LCD to show blank lines or old data.
