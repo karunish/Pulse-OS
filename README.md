@@ -46,4 +46,4 @@ Building this was an iterative process that required solving several real-world 
 3.  **Partition Scheme:** If the code fails to upload, change the Partition Scheme to **"Huge APP (3MB No OTA)"** in the Arduino IDE Tools menu, as the BLE stack is resource-intensive.
 
 ---
-*Developed as part of the Pulse Bridge Ecosystem.*
+*Developed as part of the Pulse Bridge Ecosystem. I love monolithic code*
