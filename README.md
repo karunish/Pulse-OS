@@ -1,6 +1,6 @@
 # Pulse OS - ESP32 Firmware
 
-Pulse OS is the hardware-side firmware for the **Pulse Bridge** system. It transforms an ESP32 into a smart external dashboard that displays real-time media metadata, phone status, and supports touchless gesture controls via an IR sensor.
+Pulse OS is the hardware-side firmware for the [**Pulse Bridge**](https://github.com/karunish/Pulse-Bridge) system. It transforms an ESP32 into a smart external dashboard that displays real-time media metadata, phone status, and supports touchless gesture controls via an IR sensor.
 
 ## Hardware Configuration
 * **Microcontroller:** ESP32 (WROOM/S3)
